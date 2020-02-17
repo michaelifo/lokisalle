@@ -5,7 +5,7 @@ require_once "functions.php";
 
 require_once "header.php";
 
-$bdd = new PDO('mysql:host=sql25;dbname=psn17421;charset=utf8', 'psn17421', 'B0hndYzwMTos');
+require_once "db_second.php";
 
 $user_statut = $_SESSION['auth']->statut;
 
@@ -25,27 +25,31 @@ if (isset($_GET['type']) AND $_GET['type'] == 'commande') {
       
       $req->execute(array($supprime));
 
-      header('Location: productManagement.php');
+      header('Location: commandeManagement.php');
    }
 }
 
-$commandes = $bdd->query('SELECT commande.id_commande, 
-                                commande.id_membre,
-                                commande.id_produit,
-                                commande.date_enregistrement,
-                                membre.id_membre,
-                                membre.email,
-                                produit.id_produit,
-                                produit.id_salle,
-                                produit.date_arrivee,
-                                produit.date_depart,
-                                produit.prix
-                         FROM commande
-                         LEFT JOIN membre 
-                         ON commande.id_membre = membre.id_membre
-                         RIGHT JOIN produit
-                         ON commande.id_produit = produit.id_produit
-                         ORDER BY commande.id_commande ASC  
+$commandes = $bdd->query('SELECT c.id_commande AS commandeid,
+                                 c.id_membre AS cmembreid,
+                                 c.id_produit AS cproduitid,
+                                 c.date_enregistrement AS cde,
+                                 m.id_membre AS membreid,
+                                 m.email AS emailm,
+                                 p.id_produit AS produitid,
+                                 p.id_salle AS psalleid,
+                                 p.date_arrivee AS pda,
+                                 p.date_depart AS pdd,
+                                 p.prix AS pprix,
+                                 s.id_salle AS salleid,
+                                 s.titre AS stitre
+                         FROM commande AS c
+                         LEFT JOIN membre AS m
+                         ON c.id_membre = m.id_membre
+                         RIGHT JOIN produit AS p
+                         ON c.id_produit = p.id_produit
+                         RIGHT JOIN salle AS s
+                         ON p.id_salle = s.id_salle 
+                         ORDER BY c.id_commande ASC  
                          LIMIT 0,50');
 
 
@@ -68,13 +72,13 @@ $commandes = $bdd->query('SELECT commande.id_commande,
          <?php while($c = $commandes->fetch()) { ?>
          
         <tr>
-            <td scope="col"><?= $c['id_commande'] ?></td>
-            <td scope="col"><?= $c['id_membre'] . ' -' . $c['email'] ?></td>
-            <td scope="col"><?= $c['id_produit'] . ' -' . $c['id_salle'] ?></td>
-            <td scope="col"><?= $c['prix'] . '€' ?></td>
-            <td scope="col"><?= $c['date_enregistrement']?></td>
+            <td scope="col"><?= $c['commandeid'] ?></td>
+            <td scope="col"><?= $c['cmembreid'] . ' -' . $c['emailm'] ?></td>
+            <td scope="col"><?= $c['cproduitid'] . ' - ' . $c['stitre'] . '<br>' . $c['pda'] . ' au ' . $c['pdd'] ?></td>
+            <td scope="col"><?= $c['pprix'] . '€' ?></td>
+            <td scope="col"><?= $c['cde']?></td>
             <td scope="col">
-                <a href="commandeManagement.php?type=commande&supprime=<?= $c['id_commande'] ?>">Supprimer</a>
+                <a href="commandeManagement.php?type=commande&supprime=<?= $c['commandeid'] ?>">Supprimer</a>
             </td>
         </tr>
         <?php } ?>

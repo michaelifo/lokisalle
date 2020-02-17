@@ -5,7 +5,7 @@ require_once "functions.php";
 
 require_once "header.php";
 
-$bdd = new PDO('mysql:host=sql25;dbname=psn17421;charset=utf8', 'psn17421', 'B0hndYzwMTos');
+require_once "db_second.php";
 
 $user_statut = $_SESSION['auth']->statut;
 

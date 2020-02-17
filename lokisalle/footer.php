@@ -9,7 +9,7 @@
                         </li>
                     </ul>   
           
-                      
+                </div>
 
         <script src="js/script.js"></script>
         <script src="vendor/jquery/jquery.min.js"></script>

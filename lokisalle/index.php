@@ -39,10 +39,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="cezanne.php"><img class="card-img-top" src="images/cezanne.jpg" alt="salle cezanne"></a>
+                        <a href="cezanne.php?id_produit=1"><img class="card-img-top" src="images/cezanne.jpg" alt="salle cezanne"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="cezanne.php">Cézanne</a>
+                                <a href="cezanne.php?id_produit=1">Cézanne</a>
                             </h4>
                             <h5>place : 30</h5>
                             <p class="card-text">La salle cézanne parfaite pour vos réunions d'entreprise</p>
@@ -55,10 +55,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="mozart.php"><img class="card-img-top" src="images/mozart.jpg" alt="salle mozart"></a>
+                        <a href="mozart.php?id_produit=2"><img class="card-img-top" src="images/mozart.jpg" alt="salle mozart"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="mozart.php">Mozart</a>
+                                <a href="mozart.php?id_produit=2">Mozart</a>
                             </h4>
                             <h5>place : 5</h5>
                             <p class="card-text">Cette salle vous permettra de recevoir vos collaborateurs en petit comité</p>
@@ -71,10 +71,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="picasso.php"><img class="card-img-top" src="images/picasso.jpg" alt="salle picasso"></a>
+                        <a href="picasso.php?id_produit=3"><img class="card-img-top" src="images/picasso.jpg" alt="salle picasso"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="picasso.php">Picasso</a>
+                                <a href="picasso.php?id_produit=3">Picasso</a>
                             </h4>
                             <h5>place : 14</h5>
                             <p class="card-text">Cette salle vous permettra de conférencer avec vos collègues</p>
@@ -87,10 +87,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="voltaire.php"><img class="card-img-top" src="images/voltaire.jpg" alt="salle voltaire"></a>
+                        <a href="voltaire.php?id_produit=4"><img class="card-img-top" src="images/voltaire.jpg" alt="salle voltaire"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="voltaire.php">Voltaire</a>
+                                <a href="voltaire.php?id_produit=4">Voltaire</a>
                             </h4>
                             <h5>place : 9</h5>
                             <p class="card-text">Cette salle, vous étonnera par ses nombreuses fonctionnalités.</p>
@@ -103,10 +103,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="nation.php"><img class="card-img-top" src="images/nation.jpg" alt="salle nation"></a>
+                        <a href="nation.php?id_produit=5"><img class="card-img-top" src="images/nation.jpg" alt="salle nation"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="nation.php">Nation</a>
+                                <a href="nation.php?id_produit=5">Nation</a>
                             </h4>
                             <h5>place : 22</h5>
                             <p class="card-text">Cette salle met l'accent sur la convivialité et la sérénité.</p>
@@ -119,10 +119,10 @@
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="caniere.php"><img class="card-img-top" src="images/caniere.jpg" alt="salle caniere"></a>
+                        <a href="caniere.php?id_produit=6"><img class="card-img-top" src="images/caniere.jpg" alt="salle caniere"></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="caniere.php">Caniere</a>
+                                <a href="caniere.php?id_produit=6">Caniere</a>
                             </h4>
                             <h5>place : 50</h5>
                             <p class="card-text">Dotée d'une très grande capacité d'accueil, il est possible d'y organiser un grand rassemblement.</p>
