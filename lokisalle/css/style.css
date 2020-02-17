@@ -1,0 +1,21 @@
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    background-color: #faebd7;
+}
+
+.logo > a img {
+    margin: auto;
+}
+
+nav {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}

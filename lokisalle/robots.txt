@@ -1,0 +1,8 @@
+User-agent: *
+Crawl-delay: 30
+
+allow: /*
+Sitemap: https://lokisalle.kazamacorp.fr/sitemap.xml
+
+
+
