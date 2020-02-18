@@ -48,10 +48,15 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
                          RIGHT JOIN produit AS p
                          ON c.id_produit = p.id_produit
                          RIGHT JOIN salle AS s
-                         ON p.id_salle = s.id_salle 
-                         ORDER BY c.id_commande ASC  
+                         ON p.id_salle = s.id_salle
+                         GROUP BY c.id_commande,
+                                  c.id_membre, 
+                                  c.id_produit, 
+                                  c.date_enregistrement 
+                         ORDER BY c.id_commande DESC  
                          LIMIT 0,50');
 
+$commandes->setFetchMode(PDO::FETCH_ASSOC);                         
 
 ?>
 
@@ -60,7 +65,7 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
     
     <h1>Gestion des commandes</h1>
 
-    <table class="table table-responsive table-dark table-bordered table-sm text-center mt-4">
+    <table class="table table-dark table-bordered table-sm text-center mt-4">
         <tr class="bg-danger">
             <th scope="col">id_commande</th>
             <th scope="col">id_membre</th>
@@ -69,7 +74,7 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
             <th scope="col">date_enregistrement</th>
             <th scope="col">actions</th>
         </tr>
-         <?php while($c = $commandes->fetch()) { ?>
+         <?php foreach($commandes as $c) { ?>
          
         <tr>
             <td scope="col"><?= $c['commandeid'] ?></td>

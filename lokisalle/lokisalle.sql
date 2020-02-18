@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 17 fév. 2020 à 18:55
+-- Généré le : mar. 18 fév. 2020 à 16:20
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -33,9 +33,22 @@ CREATE TABLE `avis` (
   `id_membre` int(3) NOT NULL,
   `id_salle` int(3) NOT NULL,
   `commentaire` text NOT NULL,
-  `note` int(2) NOT NULL,
+  `note` text NOT NULL,
   `date_enregistrement` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `avis`
+--
+
+INSERT INTO `avis` (`id_avis`, `id_membre`, `id_salle`, `commentaire`, `note`, `date_enregistrement`) VALUES
+(2, 10, 1, 'gdgdfgdfgdf', '★★★★★', '2020-02-18 13:24:39'),
+(3, 1, 1, 'qsdqdsqsdq', '★★★', '2020-02-18 13:27:33'),
+(4, 2, 2, 'dsqdqsdqsd', '★★★★', '2020-02-18 15:35:05'),
+(5, 1, 3, 'sdfsdfsdsdf', '★★★★★', '2020-02-18 15:36:59'),
+(6, 1, 4, 'sdfsfsdf', '★★★★★', '2020-02-18 15:37:06'),
+(7, 1, 5, 'sdfsdfsdf', '★★★★★', '2020-02-18 15:37:14'),
+(8, 1, 7, 'sdfsdfsdfsdf', '★★★★★', '2020-02-18 15:37:22');
 
 -- --------------------------------------------------------
 
@@ -55,13 +68,12 @@ CREATE TABLE `commande` (
 --
 
 INSERT INTO `commande` (`id_commande`, `id_membre`, `id_produit`, `date_enregistrement`) VALUES
-(7, 1, 1, '2020-02-17 17:15:02'),
-(8, 1, 1, '2020-02-17 17:32:04'),
-(9, 1, 1, '2020-02-17 18:17:29'),
-(10, 1, 1, '2020-02-17 18:18:14'),
-(11, 1, 1, '2020-02-17 18:18:57'),
-(12, 1, 1, '2020-02-17 18:19:59'),
-(13, 1, 1, '2020-02-17 18:20:56');
+(21, 10, 4, '2020-02-18 11:13:11'),
+(22, 10, 5, '2020-02-18 11:13:14'),
+(24, 10, 3, '2020-02-18 11:13:49'),
+(26, 10, 6, '2020-02-18 11:26:35'),
+(28, 10, 1, '2020-02-18 13:07:41'),
+(29, 1, 2, '2020-02-18 15:36:34');
 
 -- --------------------------------------------------------
 
@@ -95,7 +107,8 @@ INSERT INTO `membre` (`id_membre`, `pseudo`, `mdp`, `nom`, `prenom`, `email`, `c
 (2, 'natsu', '$2y$10$e7v3XUoxJuWDc/jiVuSGMOKApDvcq212S..OoYPYg/wGTO3Sexe4a', 'Dragnir', 'Natsu', 'natsu@gmail.com', 'homme', 0, '2020-02-15 15:30:25', NULL, '2020-02-15 15:30:54', NULL, NULL, 'IoGCfHkiJJ6kOdrbUFwMlmyGmnigXWkSKDw13y0iy1MTehDXw1hnAvrfhNrVFOicPQevxCm7lOZhEpurfUhC7LmVmyk3ekCIrMvHavSpZIBTAEqCg2PR3SMSw5nDvw4bAm66Eg0daLzhd0CrfODlcOp29g3f21XXorWsAei9KCJesOwccQjypbMmG8pWay6Zdrgk495LR7aVrpZdhaMnrWwnQkfyAuhH1yiEFQEAKKGLenKxr37VTsgx14'),
 (3, 'lucy', '$2y$10$xzlqybqUHo1nHyi5V8vZbeW7AafW5hHKEq6HNijhVL6jp487roZne', 'lucy', 'lucy', 'lucy@gmail.com', 'femme', 0, '2020-02-15 19:57:53', NULL, '2020-02-15 19:58:02', NULL, NULL, NULL),
 (4, 'naruto', '$2y$10$fhdIqDrimSXmKfVf5K1p/uOH/K89gvFxOcBcCJVdh3XKgq5ZVar/2', 'Uzumaki', 'Naruto', 'naruto@gmail.com', 'homme', 2, '2020-02-15 19:59:47', NULL, '2020-02-15 19:59:58', NULL, NULL, NULL),
-(9, 'hinata', '$2y$10$g/0cYD/Jokqo2Gc4Yn/zbOnGBoXlazIX928O5kUexOFfUkntt5Y7G', 'Hyuga', 'Hinata', 'hinata@gmail.com', 'femme', 0, '2020-02-16 17:34:32', NULL, '2020-02-16 17:34:39', NULL, NULL, NULL);
+(9, 'hinata', '$2y$10$g/0cYD/Jokqo2Gc4Yn/zbOnGBoXlazIX928O5kUexOFfUkntt5Y7G', 'Hyuga', 'Hinata', 'hinata@gmail.com', 'femme', 0, '2020-02-16 17:34:32', NULL, '2020-02-16 17:34:39', NULL, NULL, NULL),
+(10, 'admin', '$2y$10$yCZg7b/4u76pwf7I2JuJreIurve7RQhu1Ir2bj1WZzXGX4q.RkiQW', 'Admin', 'Boss', 'michael.ifocop@gmail.com', 'homme', 1, '2020-02-18 10:45:02', NULL, '2020-02-18 10:46:06', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,11 +131,11 @@ CREATE TABLE `produit` (
 
 INSERT INTO `produit` (`id_produit`, `id_salle`, `date_arrivee`, `date_depart`, `prix`, `etat`) VALUES
 (1, 1, '2021-02-01 08:00:00', '2021-02-16 17:00:00', 1200, 'reservation'),
-(2, 2, '2021-01-01 08:00:00', '2021-01-16 17:00:00', 1050, 'libre'),
-(3, 3, '2021-03-01 08:00:00', '2021-03-16 17:00:00', 1150, 'libre'),
-(4, 4, '2021-04-01 08:00:00', '2021-04-16 17:00:00', 850, 'libre'),
-(5, 5, '2021-05-01 08:00:00', '2021-05-16 17:00:00', 1050, 'libre'),
-(6, 7, '2021-06-01 08:00:00', '2021-06-16 17:00:00', 1600, 'libre');
+(2, 2, '2021-01-01 08:00:00', '2021-01-16 17:00:00', 1050, 'reservation'),
+(3, 3, '2021-03-01 08:00:00', '2021-03-16 17:00:00', 1150, 'reservation'),
+(4, 4, '2021-04-01 08:00:00', '2021-04-16 17:00:00', 850, 'reservation'),
+(5, 5, '2021-05-01 08:00:00', '2021-05-16 17:00:00', 1050, 'reservation'),
+(6, 7, '2021-06-01 08:00:00', '2021-06-16 17:00:00', 1600, 'reservation');
 
 -- --------------------------------------------------------
 
@@ -197,19 +210,19 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `avis`
 --
 ALTER TABLE `avis`
-  MODIFY `id_avis` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_avis` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_commande` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `membre`
 --
 ALTER TABLE `membre`
-  MODIFY `id_membre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_membre` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `produit`

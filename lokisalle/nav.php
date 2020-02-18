@@ -29,6 +29,7 @@
             <a class="dropdown-item" href="roomManagement.php">Gestions des salles</a>
             <a class="dropdown-item" href="commandeManagement.php">Gestions des commandes</a>
             <a class="dropdown-item" href="reviewManagement.php">Gestions des avis</a>
+            <a class="dropdown-item" href="statManagement.php">Statistiques</a>
           </div>
         </li>
        <?php endif; ?>

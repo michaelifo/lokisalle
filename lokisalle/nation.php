@@ -7,41 +7,75 @@ require_once "header.php";
 require_once "db_second.php";
 
 
+
 if (!empty($_POST['commentaire']) AND !empty($_POST['note'])) {
+
+  $user_id = $_SESSION['auth']->id_membre;
 
   $req = $bdd->prepare('INSERT INTO avis SET id_membre = ?, id_salle = ?, commentaire = ?, note = ?, date_enregistrement = now()');
 
-  $req->execute([$user_id, '1', $_POST['commentaire'], $_POST['note']]);
+  $req->execute([$user_id, '5', $_POST['commentaire'], $_POST['note']]);
 
   $_SESSION['flash']['success'] .= "Votre avis a bien été posté ! <br>";
 
-  header('Location: nation.php?id_produit=5');
+  header('Location: nation.php?etat=<?= implode(",", $p[4]); ?>&id_produit=5');
 
 }
 
-if (!empty($_POST['date_arrivee']) AND !empty($_POST['date_depart']) AND !empty($_POST['price'])) {
+$avis = $bdd->query('SELECT a.id_avis AS avis_id,
+                                 a.id_membre AS a_membreid,
+                                 a.id_salle AS a_salleid,
+                                 a.commentaire AS a_com,
+                                 a.note AS note_a,
+                                 a.date_enregistrement AS ade,
+                                 m.id_membre AS membreid,
+                                 m.email AS emailm,
+                                 s.id_salle AS salleid,
+                                 s.titre AS stitre
+                         FROM avis AS a
+                         LEFT JOIN membre AS m
+                         ON a.id_membre = m.id_membre
+                         RIGHT JOIN salle AS s
+                         ON a.id_salle = s.id_salle
+                         GROUP BY a.id_avis,
+                                  a.id_membre, 
+                                  a.id_salle, 
+                                  a.commentaire, 
+                                  a.note, 
+                                  a.date_enregistrement 
+                         ORDER BY a.id_avis DESC  
+                         LIMIT 0,50');
 
-  $id_produit = (int) $_GET['id_produit'];
+if (isset($_GET['etat']) AND isset($_POST['submit'])) {
 
-  $user_id = $_SESSION['auth']->id_membre; 
+  if (!empty($_POST['date_arrivee']) AND !empty($_POST['date_depart']) AND !empty($_POST['price']) AND $_GET['etat'] == 'libre') {
 
-  $req = $bdd->prepare('SELECT id_produit FROM produit WHERE etat = ?');
+    $id_produit = (int) $_GET['id_produit'];
+  
+    $user_id = $_SESSION['auth']->id_membre;
+  
+    $req = $bdd->prepare('SELECT id_produit FROM produit WHERE etat = ?');
+  
+    $req->execute(['reservation']);
+  
+    $req = $bdd->prepare('UPDATE produit SET etat = ? WHERE id_produit = ?');
+  
+    $req->execute(['reservation', $id_produit]);
+        
+    $req = $bdd->prepare('INSERT INTO commande SET id_membre = ?, id_produit = ?, date_enregistrement = now()');
+  
+    $req->execute([$user_id, '5']);
+  
+    $_SESSION['flash']['success'] .= "félicitations pour votre reservation ! <br>";
+  
+    header('Location: nation.php?etat=<?= implode(",", $p[4]); ?>&id_produit=5');
+  } else {
 
-  $req->execute(['reservation']);
+    $errors['submit'] = "Désolé mais cette salle est déjà réservé !";
+    
+  }
 
-  $req = $bdd->prepare('UPDATE produit SET etat = ? WHERE id_produit = ?');
-
-  $req->execute(['reservation', $id_produit]);
-      
-  $req = $bdd->prepare('INSERT INTO commande SET id_membre = ?, id_produit = ?, date_enregistrement = now()');
-
-  $req->execute([$user_id, '1']);
-
-  $_SESSION['flash']['success'] .= "félicitations pour votre reservation ! <br>";
-
-  header('Location: nation.php?id_produit=5');
-
-}
+} 
 
 
 
@@ -69,7 +103,17 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
                          LIMIT 0,50');
 
 ?>
-    
+
+
+<?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+      <ul>
+        <?php foreach ($errors as $error): ?>
+        <li><?= $error; ?></li>
+        <?php endforeach; ?>  
+      </ul>
+    </div>
+<?php endif; ?>     
 
   <!-- Page Content -->
         
@@ -93,6 +137,7 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
             <span>5/5</span>
           </div>
           <div class="card-body bg-dark text-light">
+          <form action="" method="post">
             <div class="offres">
                 <h4 class="card-title">Nos différentes offres:</h3>
                 <div class="form-group my-4">
@@ -130,6 +175,20 @@ $commandes = $bdd->query('SELECT c.id_commande AS commandeid,
                 </select>
                
               </div>
+
+              <div class="form-group my-4">
+                <label class="mr-sm-2" for="inlineFormCustomSelect4">État</label>
+                <select class="custom-select mr-sm-2" name="etat" id="inlineFormCustomSelect4">
+                <?php if($_GET['etat'] == 'libre'): ?>
+                  <option value='libre'selected>Libre</option>
+                  </select> 
+              </div>
+                <?php else : ?>
+                  <option value='reservation'selected>Désolé salle déja réservé</option>
+                </select> 
+              </div>
+                <?php endif; ?>
+                
             <?php if (isset($_SESSION['auth'])): ?>
               <div class="mx-auto">
                 <button type="submit" name="submit" class="btn btn-primary my-2">Réserver</button>

@@ -9,72 +9,72 @@
 
 <url>
   <loc>https://lokisalle.kazamacorp.fr/</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/index.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/contact.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/subscribe.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/login.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/cezanne.php?id_produit=1</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/cezanne.php?etat=reservation&amp;id_produit=1</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/mozart.php?id_produit=2</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/mozart.php?etat=reservation&amp;id_produit=2</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/picasso.php?id_produit=3</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/picasso.php?etat=reservation&amp;id_produit=3</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/voltaire.php?id_produit=4</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/voltaire.php?etat=reservation&amp;id_produit=4</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/nation.php?id_produit=5</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/nation.php?etat=reservation&amp;id_produit=5</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://lokisalle.kazamacorp.fr/caniere.php?id_produit=6</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <loc>https://lokisalle.kazamacorp.fr/caniere.php?etat=reservation&amp;id_produit=6</loc>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/mentionsLegales.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/cgv.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://lokisalle.kazamacorp.fr/forget.php</loc>
-  <lastmod>2020-02-17T18:02:06+00:00</lastmod>
+  <lastmod>2020-02-18T15:28:01+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
